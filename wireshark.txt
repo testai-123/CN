@@ -6,8 +6,8 @@ for SSL (12):
 -testphp.vulnweb/login.php -> 
                            username : test ; password : test
 
--in wireshark-> search http -> go for smth like:{HTTP	726	POST /userinfo.php HTTP/1.1  (application/x-www-form-urlencoded)}
--go to html form url encoded
+-search http -> go for smth like:{HTTP	726	POST /userinfo.php HTTP/1.1  (application/x-www-form-urlencoded)}
+-go to html form url encoded - password will show
 
 2} secured (facebook)(to show that login passwrd is
                       not visible when ssl is used):
@@ -34,6 +34,7 @@ b) http:
 
 c) for flags (SYN,PSH,ACK,etc):
    --after login,stop
+   --tcp.flags.syn == 1  || tcp.flags.push == 1  || tcp.flags.reset == 1 && ip.addr==31.13.79.51
    --find manually at the last fb ip at src and pc ip at dest
    --in transmission control , show flags mentioned
 d)packet length:
