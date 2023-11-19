@@ -1,0 +1,40 @@
+for SSL (12):
+
+1} unsecured (to show that password and username 
+              is visible when ssl is not present ):
+
+-testphp.vulnweb/login.php -> 
+                           username : test ; password : test
+
+-in wireshark-> search http -> go for smth like:{HTTP	726	POST /userinfo.php HTTP/1.1  (application/x-www-form-urlencoded)}
+-go to html form url encoded
+
+2} secured (facebook)(to show that login passwrd is
+                      not visible when ssl is used):
+
+-facbook login 
+-stop capturing
+--search ssl && ip.addr==31.13.79.35 
+   -- you can search ip addr of fb by
+       doing ping www.facebook.com in
+        the command prompt
+-show certificate exchange,handshake messages, 
+ client hello ,server hello
+- and in application data -> transport layer security -> encrypted application data(which is the password)
+     { the actual data exchanged between the client and the server is encrypted to ensure secure communication
+       which includes hexadecimal string and length indicator.}
+
+10TH PS :FACEBOOK:
+
+a) tcp:
+   -- stop capturing after login
+   -- search ip.addr==<fb_ipaddr> && tcp.port==443 {443 is for https -secured websites}
+  -- go to file -> export packet dissection -> plain text ->save
+b) http:
+
+c) for flags (SYN,PSH,ACK,etc):
+   --after login,stop
+   --find manually at the last fb ip at src and pc ip at dest
+   --in transmission control , show flags mentioned
+d)packet length:
+  --stop -> statsistics -> packet lenghts -> apply filter tcp && ip.addr==<pc_ipaddr> -> save
