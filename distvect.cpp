@@ -47,7 +47,7 @@ int main() {
     cout << "Enter number of vertices: ";
     cin >> V;
 
-    cout << "Enter graph in matrix form:\n";
+    cout << "enter the edges in the format {src dest wt}:\n";
     int k = 0;  
     for (int i = 0; i < V; i++)
         for (int j = 0; j < V; j++) {
