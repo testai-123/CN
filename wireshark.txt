@@ -17,7 +17,7 @@ for SSL (12):
 --search ssl && ip.addr==31.13.79.35 
    -- you can search ip addr of fb by
        doing ping www.facebook.com in
-        the command prompt
+        the command prompt or ssl contains "facebook"
 -show certificate exchange,handshake messages, 
  client hello ,server hello
 - and in application data -> transport layer security -> encrypted application data(which is the password)
